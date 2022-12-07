@@ -1,0 +1,6 @@
+# dijkstra
+
+Run:
+```
+dotnet run             
+```
