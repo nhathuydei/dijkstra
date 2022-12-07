@@ -1,166 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-// public class Vertex
-// {
-//   public bool wasVisited;
-//   public string label;
-//   public Vertex(string label)
-//   {
-//     this.label = label;
-//     wasVisited = false;
-//   }
-// }
-// public class Graph
-// {
-//   private int NUM_VERTICES;
-//   private Vertex[] vertices;
-//   private int[,] adjMatrix;
-//   int numVerts;
-//   public Graph(int number_of_vertex)
-//   {
-//     NUM_VERTICES = number_of_vertex;
-//     vertices = new Vertex[NUM_VERTICES];
-//     adjMatrix = new int[NUM_VERTICES, NUM_VERTICES];
-//     numVerts = 0;
-//     for (int j = 0; j < NUM_VERTICES; j++)
-//       for (int k = 0; k < NUM_VERTICES; k++)
-//         adjMatrix[j, k] = 0;
-//   }
-//   public void AddVertex(string label)
-//   {
-//     vertices[numVerts] = new Vertex(label);
-//     numVerts++;
-//   }
-  
-
-//   public void AddEdge(int start, int eend)
-//   {
-//     adjMatrix[start, eend] = 1;
-//     adjMatrix[eend, start] = 1;
-//   }
-//   public void AddEdgeDiGraph(int start, int eend)
-//   {
-//     adjMatrix[start, eend] = 1;
-//     //adjMatrix[eend, start] = 1;
-//   }
-//   public void ShowVertex(int v)
-//   {
-//     Console.Write(vertices[v].label + " ");
-//   }
-
-//   private int GetAdjUnvisitedVertex(int v)
-//   {
-//     for (int j = 0; j <= NUM_VERTICES - 1; j++)
-//       if ((adjMatrix[v, j] == 1) &&
-//  (vertices[j].wasVisited == false))
-//         return j;
-//     return -1;
-//   }
-
-//   public void DepthFirstSearch()
-//   {
-//     vertices[0].wasVisited = true;
-//     ShowVertex(0);
-//     Stack<int> gStack = new Stack<int>(); 
-//     gStack.Push(0);
-//     int v;
-
-//     while (gStack.Count > 0)
-//     {
-//       v = GetAdjUnvisitedVertex(gStack.Peek());
-//       if (v == -1)
-//         gStack.Pop();
-//       else
-//       {
-//         vertices[v].wasVisited = true;
-//         ShowVertex(v);
-//         gStack.Push(v);
-//       }
-//     }
-//     for (int j = 0; j <= NUM_VERTICES - 1; j++)
-//       vertices[j].wasVisited = false;
-//   }
-//   public void BreadthFirstSearch()
-//   {
-//     Queue<int> gQueue = new Queue<int>();
-//     vertices[0].wasVisited = true;
-//     ShowVertex(0);
-//     gQueue.Enqueue(0);
-//     int vert1, vert2;
-//     while (gQueue.Count > 0)
-//     {
-//       vert1 = gQueue.Dequeue();
-//       vert2 = GetAdjUnvisitedVertex(vert1);
-
-//       while (vert2 != -1)
-//       {
-//         vertices[vert2].wasVisited = true;
-//         ShowVertex(vert2);
-//         gQueue.Enqueue(vert2);
-//         vert2 = GetAdjUnvisitedVertex(vert1);
-//       }
-//     }
-//     for (int i = 0; i <= NUM_VERTICES - 1; i++)
-//       vertices[i].wasVisited = false;
-//   }
-
-//     public void PrintAdjMatrix(){
-//         for (int i = 0 ; i < NUM_VERTICES ; i ++){
-//             for(int j = 0 ; j < NUM_VERTICES ; j++){
-//                 Console.Write("{0,3}" , adjMatrix[i,j]);
-//             }
-//             Console.WriteLine();
-//         }
-//     }
-
-
-// }
-// public class Program{
-//   public static void Main(string[] args)
-//   {
-//     // Console.Clear();
-//     // Graph g = new Graph(4);
-//     // g.AddVertex("A");g.AddVertex("B");g.AddVertex("C");g.AddVertex("D");
-//     // g.AddEdge(0, 1);g.AddEdge(0, 2);g.AddEdge(0, 3);
-//     // g.AddEdge(1, 2);g.AddEdge(1, 3);
-//     // g.AddEdge(2, 3);
-//     // g.PrintAdjMatrix();
-
-//     // Graph g2 = new Graph(3);
-//     // g2.AddVertex("A");g2.AddVertex("B");g2.AddVertex("C");
-//     // g2.AddEdgeDiGraph(0, 1);g2.AddEdgeDiGraph(1, 2);
-//     // g2.AddEdgeDiGraph(2, 0);
-//     // g2.PrintAdjMatrix();
-
-//     Graph graph = new Graph(13);
-//     graph.AddVertex("A"); graph.AddVertex("B");//0 1
-//     graph.AddVertex("C"); graph.AddVertex("D");//2 3
-//     graph.AddVertex("E"); graph.AddVertex("F");//4 5
-//     graph.AddVertex("G"); graph.AddVertex("H");//6 7
-//     graph.AddVertex("I"); graph.AddVertex("J");//8 9
-//     graph.AddVertex("K"); graph.AddVertex("L");//10 11
-//     graph.AddVertex("M");//12
-//     graph.AddEdge(0, 1); //graph.AddEdge(1, 0);
-//     graph.AddEdge(0, 4); //graph.AddEdge(4, 0);
-//     graph.AddEdge(0, 7); //graph.AddEdge(7, 0);
-//     graph.AddEdge(0, 10); //graph.AddEdge(0, 10);
-//     graph.AddEdge(1, 2); //graph.AddEdge(2, 1);
-//     graph.AddEdge(2, 3); //graph.AddEdge(3, 2);
-//     graph.AddEdge(4, 5); //graph.AddEdge(5, 4);
-//     graph.AddEdge(5, 6); //graph.AddEdge(6, 5);
-//     graph.AddEdge(7, 8); //graph.AddEdge(8, 7);
-//     graph.AddEdge(8, 9); //graph.AddEdge(9, 8);
-//     graph.AddEdge(10, 11); //graph.AddEdge(11, 10;
-//     graph.AddEdge(11, 12); //graph.AddEdge(12, 11);
-//     Console.Write("DFS: ");
-//     graph.DepthFirstSearch();
-//     Console.Write("\nBFS: ");
-//     graph.BreadthFirstSearch();
-//     // Console.ReadLine();
-//   }
-// }
-//++++++++++++++++++++++++++++++++++++++++++++++
 public class Edge {
   public int from;
   public int to;
@@ -178,47 +18,62 @@ public class Edge {
     return this.to;
   }
 }
-
 public class DistOriginal
 {
-  public int distance; 
+  public double distance; 
   public int parentVert;
-  public DistOriginal(int pv, int d)
+  public DistOriginal(int pv, double d)
   {
     distance = d; parentVert = pv;
   }
 }
 public class Vertex
 {
-  public string label; public bool isInTree;
-  public Vertex(string lab) { label = lab; isInTree = false; }
+  public string label; public bool isInTree; public double x; public double y;
+  public Vertex(string lab, double x, double y) 
+  { 
+    label = lab; isInTree = false; 
+    this.x = x; this.y = y;
+  }
 }
 public class Graph
 {
   private const int max_verts = 20;
-  int infinity = 1000000; Vertex[] vertexList; int[,] adjMat;
+  int infinity = 1000000; Vertex[] vertexList; double[,] adjMat;
   int nVerts; int nTree; DistOriginal[] sPath;
-  int currentVert; int startToCurrent;
-
+  int currentVert; double startToCurrent;
   List<Edge> edges = new List<Edge>();
   public Graph() 
   {
     vertexList = new Vertex[max_verts];
-    adjMat = new int[max_verts, max_verts];
+    adjMat = new double[max_verts, max_verts];
     nVerts = 0; nTree = 0;
     for (int j = 0; j <= max_verts - 1; j++)
       for (int k = 0; k <= max_verts - 1; k++)
         adjMat[j, k] = infinity;
     sPath = new DistOriginal[max_verts];
+
+    //
+    AddVertex("0hcm",3,4); AddVertex("1vinh",4,3);
+    AddVertex("2danang",5,1); AddVertex("3camau",4,1);
+    AddVertex("4vinh",5,1); AddVertex("5hanoi",7,3);
+    AddVertex("6binhdinh",3,4); 
+
+    // doc file de addEdge
+    string[] data = File.ReadAllLines(@"data.txt");
+    foreach (var line in data){
+      string[] s = line.Split(" ");
+      AddEdge(int.Parse(s[0]),int.Parse(s[1]));
   }
-  public void AddVertex(string lab)
+    }
+  public void AddVertex(string lab, double x, double y)
   {
-    vertexList[nVerts] = new Vertex(lab); nVerts++;
+    vertexList[nVerts] = new Vertex(lab, x, y); nVerts++;
   }
-  public void AddEdge(int start, int theEnd, int weight)
+  public void AddEdge(int start, int theEnd)
   {
-    adjMat[start, theEnd] = weight;
-    adjMat[theEnd, start] = weight;
+    adjMat[start, theEnd] = Math.Sqrt(Math.Pow((vertexList[start].x - vertexList[theEnd].x),2) + Math.Pow((vertexList[start].y - vertexList[theEnd].y),2)) ;
+    adjMat[theEnd, start] = adjMat[start, theEnd];
   }
   public void Path(int from, int to)
   {
@@ -227,14 +82,14 @@ public class Graph
     nTree = 0;
     for (int j = 0; j <= nVerts; j++)
     {
-      int tempDist = adjMat[startTree, j];
+      double tempDist = adjMat[startTree, j];
       sPath[j] = new DistOriginal(startTree, tempDist);
     }
     while (nTree < nVerts ) 
     {
       if(nTree == from) nTree++;
       int indexMin = GetMin();
-      int minDist = sPath[indexMin].distance;
+      double minDist = sPath[indexMin].distance;
       currentVert = indexMin;
       startToCurrent = minDist;
       vertexList[currentVert].isInTree = true;
@@ -247,12 +102,10 @@ public class Graph
     for (int j = 0; j <= nVerts - 1; j++)
       vertexList[j].isInTree = false;
   }
-  
-
   // Get index of vertex has shortest distance
   public int GetMin()
   {
-    int minDist = infinity;
+    double minDist = infinity;
     int indexMin = 0;
     for (int j = 1; j <= nVerts - 1; j++)
       if (!(vertexList[j].isInTree) && sPath[j].distance < minDist)
@@ -261,7 +114,6 @@ public class Graph
       }
     return indexMin;
   }
-
   // calculate path of adjust vertex
   public void AdjustShortPath(int from, int to)
   {
@@ -271,9 +123,9 @@ public class Graph
 
       else
       {
-        int currentToFring = adjMat[currentVert, column];
-        int startToFringe = startToCurrent + currentToFring;
-        int sPathDist = sPath[column].distance;
+        double currentToFring = adjMat[currentVert, column];
+        double startToFringe = startToCurrent + currentToFring;
+        double sPathDist = sPath[column].distance;
         if (startToFringe < sPathDist)
         {
           sPath[column].parentVert = currentVert;
@@ -282,7 +134,6 @@ public class Graph
         column++;
       }
   }
-  
   public void DisplayPaths()
   {
     for (int j = 0; j <= nVerts - 1; j++)
@@ -296,7 +147,6 @@ public class Graph
      
     }
   }
-
   public void FindShortestPath(int from, int to) {
     int cur = to;
     for (int j = 0; j < nVerts ; j++)
@@ -320,24 +170,14 @@ public class Graph
       }
     Console.WriteLine(result);
   }
-
 }
+
 public class Program
 {
   public static void Main()
   {
     Console.Clear();
     Graph theGraph = new Graph();
-    theGraph.AddVertex("0hcm"); theGraph.AddVertex("1vinh");
-    theGraph.AddVertex("2danang"); theGraph.AddVertex("3camau");
-    theGraph.AddVertex("4vinh"); theGraph.AddVertex("5hanoi");
-    theGraph.AddVertex("6binhdinh"); 
-    theGraph.AddEdge(0, 1, 2); theGraph.AddEdge(0, 2, 3);
-    theGraph.AddEdge(1, 2, 2); theGraph.AddEdge(1, 3, 1);
-    theGraph.AddEdge(1, 4, 3); theGraph.AddEdge(1, 5, 2);
-    theGraph.AddEdge(2, 4, 3); theGraph.AddEdge(3, 4, 2);
-    theGraph.AddEdge(3, 5, 1); theGraph.AddEdge(4, 5, 2);
-    theGraph.AddEdge(6, 1, 1); theGraph.AddEdge(6, 4, 1);
     
 
     Console.WriteLine("Shortest paths:"); theGraph.Path(0,4);
