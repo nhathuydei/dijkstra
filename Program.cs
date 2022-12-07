@@ -175,6 +175,7 @@ public class Graph
         }
       }
     Console.WriteLine(result);
+    Console.WriteLine(">>Distance: {0:N2}km", startToCurrent);
   }
 }
 
@@ -186,7 +187,7 @@ public class Program
     Graph theGraph = new Graph();
     
 
-    Console.WriteLine("Shortest paths:"); theGraph.Path(2,6);
+    Console.WriteLine("Shortest paths:"); theGraph.Path(0,7);
     // Console.ReadLine();
   }
 }

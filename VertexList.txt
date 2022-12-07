@@ -5,3 +5,4 @@
 4halong 9 0
 5hanoi 7 3
 6binhdinh 6 4
+7nghean 8 3
