@@ -1,0 +1,7 @@
+0hcm 3 4
+1vinh 4 3
+2danang 5 1
+3camau 4 1
+4halong 9 0
+5hanoi 7 3
+6binhdinh 6 4

@@ -54,17 +54,23 @@ public class Graph
     sPath = new DistOriginal[max_verts];
 
     //
-    AddVertex("0hcm",3,4); AddVertex("1vinh",4,3);
-    AddVertex("2danang",5,1); AddVertex("3camau",4,1);
-    AddVertex("4vinh",5,1); AddVertex("5hanoi",7,3);
-    AddVertex("6binhdinh",3,4); 
+    string[] VertexData = File.ReadAllLines(@"VertexList.txt");
+    foreach (var line in VertexData){
+      string[] s = line.Split(" ");
+      AddVertex(s[0], int.Parse(s[1]), int.Parse(s[2]));
+    }
+
+    // AddVertex("0hcm",3,4); AddVertex("1vinh",4,3);
+    // AddVertex("2danang",5,1); AddVertex("3camau",4,1);
+    // AddVertex("4halong",9,0); AddVertex("5hanoi",7,3);
+    // AddVertex("6binhdinh",6,4); 
 
     // doc file de addEdge
-    string[] data = File.ReadAllLines(@"data.txt");
-    foreach (var line in data){
+    string[] EdgeData = File.ReadAllLines(@"EdgeList.txt");
+    foreach (var line in EdgeData){
       string[] s = line.Split(" ");
       AddEdge(int.Parse(s[0]),int.Parse(s[1]));
-  }
+    }
     }
   public void AddVertex(string lab, double x, double y)
   {
@@ -157,7 +163,7 @@ public class Graph
     }
 
     Console.WriteLine("From: " + from + " To: " + to);
-    string result = " " + vertexList[to].label;
+    string result = "" + vertexList[to].label;
 
     while (cur != from)
       for(int i = 0 ; i < edges.Count() ; i++){
@@ -180,7 +186,7 @@ public class Program
     Graph theGraph = new Graph();
     
 
-    Console.WriteLine("Shortest paths:"); theGraph.Path(0,4);
+    Console.WriteLine("Shortest paths:"); theGraph.Path(2,6);
     // Console.ReadLine();
   }
 }
