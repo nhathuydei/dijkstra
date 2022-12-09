@@ -164,18 +164,20 @@ public class Graph
 
     Console.WriteLine("From: " + from + " To: " + to);
     string result = "" + vertexList[to].label;
-
+    double distance = 0;
     while (cur != from)
       for(int i = 0 ; i < edges.Count() ; i++){
 
         if(edges.ElementAt(i).GetFrom() == cur){
           cur = edges.ElementAt(i).GetTo();
           result = vertexList[cur].label + " -> " + result;
+          distance += adjMat[cur,edges.ElementAt(i).GetFrom()];
           break;
+
         }
       }
     Console.WriteLine(result);
-    Console.WriteLine(">>Distance: {0:N2}km", startToCurrent);
+    Console.WriteLine(">>Distance: {0:N2}km", distance);
   }
 }
 
@@ -187,7 +189,7 @@ public class Program
     Graph theGraph = new Graph();
     
 
-    Console.WriteLine("Shortest paths:"); theGraph.Path(0,7);
+    Console.WriteLine("Shortest paths:"); theGraph.Path(0,1);
     // Console.ReadLine();
   }
 }
