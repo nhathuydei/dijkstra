@@ -91,7 +91,7 @@ public class Graph
       double tempDist = adjMat[startTree, j];
       sPath[j] = new DistOriginal(startTree, tempDist);
     }
-    while (nTree < nVerts ) 
+    while (nTree < nVerts) 
     {
       if(nTree == from) nTree++;
       int indexMin = GetMin();
@@ -101,6 +101,7 @@ public class Graph
       vertexList[currentVert].isInTree = true;
       nTree++;
       AdjustShortPath(from, to);
+      if(indexMin == to) break;
     }
     // DisplayPaths();
     FindShortestPath(from, to);
@@ -124,7 +125,7 @@ public class Graph
   public void AdjustShortPath(int from, int to)
   {
     int column = 0;
-    while (column < nVerts )
+    while (column < nVerts)
       if (vertexList[column].isInTree || column == from) column++;
 
       else
@@ -164,20 +165,18 @@ public class Graph
 
     Console.WriteLine("From: " + from + " To: " + to);
     string result = "" + vertexList[to].label;
-    double distance = 0;
     while (cur != from)
       for(int i = 0 ; i < edges.Count() ; i++){
 
         if(edges.ElementAt(i).GetFrom() == cur){
           cur = edges.ElementAt(i).GetTo();
           result = vertexList[cur].label + " -> " + result;
-          distance += adjMat[cur,edges.ElementAt(i).GetFrom()];
           break;
 
         }
       }
     Console.WriteLine(result);
-    Console.WriteLine(">>Distance: {0:N2}km", distance);
+    Console.WriteLine(">>Distance: {0:N2}km", startToCurrent);
   }
 }
 
