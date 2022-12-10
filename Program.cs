@@ -39,7 +39,7 @@ public class Vertex
 public class Graph
 {
   private const int max_verts = 20;
-  int infinity = 1000000; Vertex[] vertexList; double[,] adjMat;
+  public int infinity = 1000000; Vertex[] vertexList; public double[,] adjMat;
   int nVerts; int nTree; DistOriginal[] sPath;
   int currentVert; double startToCurrent;
   List<Edge> edges = new List<Edge>();
@@ -78,7 +78,7 @@ public class Graph
   }
   public void AddEdge(int start, int theEnd)
   {
-    adjMat[start, theEnd] = Math.Sqrt(Math.Pow((vertexList[start].x - vertexList[theEnd].x),2) + Math.Pow((vertexList[start].y - vertexList[theEnd].y),2)) ;
+    adjMat[start, theEnd] = Math.Round(Math.Sqrt(Math.Pow((vertexList[start].x - vertexList[theEnd].x),2) + Math.Pow((vertexList[start].y - vertexList[theEnd].y),2)),2) ;
     adjMat[theEnd, start] = adjMat[start, theEnd];
   }
   public void Path(int from, int to)
@@ -186,6 +186,15 @@ public class Program
   {
     Console.Clear();
     Graph theGraph = new Graph();
+    for (int i = 0 ; i < theGraph.adjMat.GetLength(0) ; i++){
+      for (int j = 0 ; j < theGraph.adjMat.GetLength(1) ; j++){
+        if (theGraph.adjMat[i,j] == theGraph.infinity) Console.Write("{0,5}","inf");
+        else Console.Write("{0,5}",theGraph.adjMat[i,j]);
+    }
+    Console.WriteLine();
+
+      
+    }
     
 
     Console.WriteLine("Shortest paths:"); theGraph.Path(0,1);
