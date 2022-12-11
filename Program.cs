@@ -50,7 +50,8 @@ public class Graph
     nVerts = 0; nTree = 0;
     for (int j = 0; j <= max_verts - 1; j++)
       for (int k = 0; k <= max_verts - 1; k++)
-        adjMat[j, k] = infinity;
+        if (j == k) adjMat[j, k] =0;
+        else adjMat[j, k] = infinity;
     sPath = new DistOriginal[max_verts];
 
     //
