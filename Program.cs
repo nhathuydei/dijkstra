@@ -181,8 +181,8 @@ public class Graph
   }
 
   public void DisplayMatrix(){
-    for (int i = 0 ; i < adjMat.GetLength(0) ; i++){
-      for (int j = 0 ; j < adjMat.GetLength(1) ; j++){
+    for (int i = 0 ; i < nVerts ; i++){
+      for (int j = 0 ; j < nVerts ; j++){
         if (adjMat[i,j] == infinity) Console.Write("{0,5}","inf");
         else Console.Write("{0,5}",adjMat[i,j]);
       }
