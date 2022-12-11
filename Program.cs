@@ -178,6 +178,16 @@ public class Graph
     Console.WriteLine(result);
     Console.WriteLine(">>Distance: {0:N2}km", startToCurrent);
   }
+
+  public void DisplayMatrix(){
+    for (int i = 0 ; i < adjMat.GetLength(0) ; i++){
+      for (int j = 0 ; j < adjMat.GetLength(1) ; j++){
+        if (adjMat[i,j] == infinity) Console.Write("{0,5}","inf");
+        else Console.Write("{0,5}",adjMat[i,j]);
+      }
+    Console.WriteLine();
+    }
+  }
 }
 
 public class Program
@@ -186,18 +196,11 @@ public class Program
   {
     Console.Clear();
     Graph theGraph = new Graph();
-    for (int i = 0 ; i < theGraph.adjMat.GetLength(0) ; i++){
-      for (int j = 0 ; j < theGraph.adjMat.GetLength(1) ; j++){
-        if (theGraph.adjMat[i,j] == theGraph.infinity) Console.Write("{0,5}","inf");
-        else Console.Write("{0,5}",theGraph.adjMat[i,j]);
-    }
-    Console.WriteLine();
-
-      
-    }
+    
     
 
     Console.WriteLine("Shortest paths:"); theGraph.Path(0,1);
+    theGraph.DisplayMatrix();
     // Console.ReadLine();
   }
 }
