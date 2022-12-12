@@ -83,8 +83,10 @@ public class Graph
     adjMat[theEnd, start] = adjMat[start, theEnd];
   }
   public void Path(int from, int to)
-  {
-    int startTree = from;
+  { 
+    if (from != to)
+    {
+      int startTree = from;
     vertexList[startTree].isInTree = true;
     nTree = 0;
     for (int j = 0; j <= nVerts; j++)
@@ -109,6 +111,13 @@ public class Graph
     nTree = 0;
     for (int j = 0; j <= nVerts - 1; j++)
       vertexList[j].isInTree = false;
+    }
+    else{
+    Console.WriteLine("From: " + from + " To: " + to);
+    Console.WriteLine(">>Distance: 0km");
+
+    }
+
   }
   // Get index of vertex has shortest distance
   public int GetMin()
@@ -183,8 +192,8 @@ public class Graph
   public void DisplayMatrix(){
     for (int i = 0 ; i < nVerts ; i++){
       for (int j = 0 ; j < nVerts ; j++){
-        if (adjMat[i,j] == infinity) Console.Write("{0,5}","inf");
-        else Console.Write("{0,5}",adjMat[i,j]);
+        if (adjMat[i,j] == infinity) Console.Write("{0,10}","inf");
+        else Console.Write("{0,10}",adjMat[i,j]);
       }
     Console.WriteLine();
     }
@@ -200,8 +209,8 @@ public class Program
     
     
 
-    Console.WriteLine("Shortest paths:"); theGraph.Path(0,1);
-    theGraph.DisplayMatrix();
+    Console.WriteLine("Shortest paths:"); theGraph.Path(3,3);
+    // theGraph.DisplayMatrix(); 
     // Console.ReadLine();
   }
 }
