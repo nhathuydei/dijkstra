@@ -1,8 +1,9 @@
-0hcm 3 4
-1vinh 4 3
-2danang 5 1
-3camau 4 1
-4halong 9 0
-5hanoi 7 3
-6binhdinh 6 4
-7nghean 8 3
+0Aeon_Mall_Tan_Phu -7 9
+1Asiana_Tan_Phu 25 7
+2Cho_BTD 0 0
+3Dam_Sen 9 2
+4UEH_B 12 8
+5CV_Gia_Dinh 2 14
+6FTU2 9 51
+7Cau_TT2 87 0
+8BV_Cho_Ray 53 12
