@@ -3,12 +3,12 @@
 ![GitHub](https://img.shields.io/badge/GitHub-Project-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-Repository này được tạo ra để lưu trữ và chia sẻ các source code được học và thực hành trong quá trình học tập môn **Cấu trúc dữ liệu và Giải thuật**. Cụ thể, repository này tập trung vào việc triển khai thuật toán **Dijkstra** - một thuật toán quan trọng trong lĩnh vực tìm đường đi ngắn nhất.
+This repository is created to store and share source codes learned and practiced during the course of **Data Structures and Algorithms**. Specifically, this repository focuses on implementing the **Dijkstra** algorithm - an important algorithm in the field of finding the shortest path.
 
-## Giới thiệu về thuật toán Dijkstra
-Thuật toán **Dijkstra** là một thuật toán tìm đường đi ngắn nhất từ một đỉnh nguồn đến tất cả các đỉnh còn lại trong đồ thị có trọng số không âm. Thuật toán này được sử dụng rộng rãi trong các bài toán liên quan đến tối ưu hóa đường đi, chẳng hạn như hệ thống định vị GPS, mạng máy tính, và nhiều ứng dụng khác.
+## Introduction to Dijkstra's algorithm
+The **Dijkstra** algorithm is an algorithm for finding the shortest path from a source vertex to all other vertices in a graph with non-negative weights. This algorithm is widely used in problems related to path optimization, such as GPS positioning systems, computer networks, and many other applications.
 
-### Các tính năng chính của thuật toán Dijkstra
-- Tìm đường đi ngắn nhất từ một đỉnh nguồn đến tất cả các đỉnh khác.
-- Sử dụng hàng đợi ưu tiên (priority queue) để tối ưu hóa hiệu suất.
-- Đảm bảo tính chính xác với đồ thị có trọng số không âm.
+### Main features of Dijkstra's algorithm
+- Find the shortest path from a source vertex to all other vertices.
+- Use priority queue to optimize performance.
+- Ensure correctness with graphs with non-negative weights.
